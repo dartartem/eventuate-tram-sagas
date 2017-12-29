@@ -53,7 +53,7 @@ public abstract class AbstractOrdersAndCustomersIntegrationTest {
       order = transactionTemplate.execute(s -> orderRepository.findOne(id));
       if (order.getState() == expectedState)
         break;
-      TimeUnit.MILLISECONDS.sleep(400);
+      TimeUnit.MILLISECONDS.sleep(1000);
     }
 
     assertEquals(expectedState, order.getState());
